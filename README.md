@@ -9,7 +9,7 @@
 1. Place the WordPress zip into your xampp folder.
 1. Visit http://localhost/phpmyadmin/ and create a Database called "wordpress"
 1. Navigate to "User Accounts" and click "Add user account." Grant permissions.
-1. 
+1. Visit http://localhost/wordpress/SaveLight/ and click "Create a Configuration File"
 1. Login.
 1. Visit http://localhost/wordpress/SaveLight/wp-admin/ for back-end management.
 1. Visit http://localhost/wordpress/SaveLight/ to view your front-end domain.
@@ -23,3 +23,9 @@
 1. Go back to dashboard > Appearance > Import Demo Data
 1. Import the Health Coach theme
 1. Visit http://localhost/wordpress/SaveLight/ for your front-end.
+
+### Customize layout
+
+* #### [Traversy](https://www.youtube.com/watch?v=nqoM4dYHiyc&t=11m7s)
+1. Appearance > Themes > Customize (current theme)
+1. Header > Menu > Contained
