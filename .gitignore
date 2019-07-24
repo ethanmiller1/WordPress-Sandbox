@@ -46,6 +46,11 @@
 # track readme.md in the root (i.e. do NOT ignore it)
 !readme.md
 
+# track wp-config.php
+!wp-config.php
+!index.php
+
+
 # ignore all files that start with ~
 ~*
 

@@ -29,3 +29,50 @@
 * #### [Traversy](https://www.youtube.com/watch?v=nqoM4dYHiyc&t=11m7s)
 1. Appearance > Themes > Customize (current theme)
 1. Header > Menu > Contained
+
+## Deploy To Heroku
+
+https://elements.heroku.com/buttons/ellefsen/wordpress-heroku-php
+
+``` bash
+# Clone repository.
+$ git clone git://github.com/mhoofman/wordpress-heroku.git 
+# Navigate to project directory.
+$ cd wordpress-heroku
+# Create heroku app.
+$ heroku create domainname
+# Rename app if you'd like.
+$ heroku apps:rename newname
+# Add heroku database.
+$ heroku addons:create heroku-postgresql
+# Promote your database (something like postgresql-opaque-96243, ).
+$ heroku pg:promote HEROKU_POSTGRESQL_INSTANCE
+# Deploy site to Heroku.
+$ git add .
+$ git push heroku master
+```
+
+In Heroku, navigate to your app > Settings > Reveal Config Vars to access your DATABASE_URL Environment Variable.
+
+#### Pass environment variables into `wp.config.php`
+
+``` php
+$db = parse_url($_ENV["DATABASE_URL"]);
+
+/** The name of the database for WordPress */
+define('DB_NAME', trim($db["path"],"/"));
+
+/** MySQL database username */
+define('DB_USER', $db["user"]);
+
+/** MySQL database password */
+define('DB_PASSWORD', $db["pass"]);
+
+/** MySQL hostname */
+define('DB_HOST', $db["host"]);
+```
+
+#### Clear out your database.
+``` bash
+$ heroku pg:reset DATABASE_URL
+```
